@@ -1,0 +1,29 @@
+{% extends 'main.html' %}
+
+{% block content %}
+
+{% if number > 10 %}
+<p>nomor lebih dari 10</p>
+
+{% elif number == 10 %}
+<p>nomor sama 10</p>
+{% else %}
+<p>nomor kurang dari 10</p>
+{% endif %}
+
+<h1> project template</h1>
+<p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Magnam eius doloremque cupiditate, beatae inventore possimus
+    molestiae, dolore dolorum, quia repellat commodi. Totam quos voluptate excepturi temporibus autem eligendi numquam
+    labore reiciendis exercitationem maiores dolor ratione nam ab, quae praesentium vitae cum tempore! Quod doloribus
+    dicta soluta! Tempora dolorum voluptatum dicta, debitis laboriosam dignissimos amet voluptates quisquam
+    reprehenderit nostrum cum porro sunt, alias, sint consequuntur. Sed ex quod nisi a sit voluptates iste molestiae
+    eius dolor earum necessitatibus alias laudantium obcaecati magnam odio laborum consequatur pariatur, perspiciatis
+    iusto delectus? Quasi facilis sunt incidunt blanditiis illo ratione placeat quos corporis quidem magnam.</p>
+
+<ul>
+    {% for project in projects %}
+    <li>Title : <a href="{% url 'project' project.id %}">{{project.title}}</a> --- {{project.description}}</li>
+    {% endfor %}
+</ul>
+
+{% endblock content %}
