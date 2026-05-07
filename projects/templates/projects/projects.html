@@ -1,6 +1,27 @@
 {% extends 'main.html' %}
 
 {% block content %}
+<table>
+    <tr>
+        <th>ID</th>
+        <th>Project</th>
+        <th>Positive Votes</th>
+        <th>Votes</th>
+        <th></th>
+    </tr>
+    {% for project in projects %}
+    <tr>
+        <td>{{project.id}}</td>
+        <td>{{project.title}}</td>
+        <td>{{project.vote_ratio}}%</td>
+        <td>{{project.vote_total}}</td>
+        <td>{{project.created}}</td>
+        <td><a href="{% url 'update-project' project.id %}">Edit</a></td>
+        <td><a href="{% url 'delete-project' project.id %}">Delete</a></td>
+        <td><a href="{% url 'project' project.id %}">View</a></td>
+    </tr>
+    {% endfor %}
+</table>
 
 {% if number > 10 %}
 <p>nomor lebih dari 10</p>
@@ -20,10 +41,6 @@
     eius dolor earum necessitatibus alias laudantium obcaecati magnam odio laborum consequatur pariatur, perspiciatis
     iusto delectus? Quasi facilis sunt incidunt blanditiis illo ratione placeat quos corporis quidem magnam.</p>
 
-<ul>
-    {% for project in projects %}
-    <li>Title : <a href="{% url 'project' project.id %}">{{project.title}}</a> --- {{project.description}}</li>
-    {% endfor %}
-</ul>
 
 {% endblock content %}
+

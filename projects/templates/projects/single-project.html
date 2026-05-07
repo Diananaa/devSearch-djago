@@ -5,4 +5,24 @@
 <h1>{{project.title}}</h1>
 <br>
 <p>{{project.description}}</p>
+
+<ul>
+    {% for tag in project.tags.all %}
+
+    <span style="border: 1px solid grey;">
+        {{tag}}
+    </span>
+    {% endfor %}
+</ul>
+
+<script>
+    console.log("PROJECT:", "{{ project.title|escapejs }}");
+    // const project = {
+    //     id: "{{ project.id|escapejs }}",
+    //     title: "{{ project.title|escapejs }}",
+    //     description: "{{ project.description|escapejs }}"
+    // };
+    // console.log("PROJECT:", project);
+    // console.log("TYPE:", typeof project);
+</script>
 {% endblock %}
