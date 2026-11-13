@@ -77,6 +77,7 @@ def userAccount(request):
     profile = request.user.profile
     skills = profile.skill_set.all()
     projects = profile.project_set.all()
+    print(list(projects.values()))
 
     context ={'profile':profile, 'skills': skills, 'projects': projects}
     return render(request, 'users/account.html', context)
